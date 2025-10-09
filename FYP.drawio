@@ -1,0 +1,166 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36" version="28.2.5">
+  <diagram name="Page-1" id="V2wbT5nPD_6LFAExI-VR">
+    <mxGraphModel dx="1426" dy="777" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#67AB9F" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="aYq7WPbx57LN9MyDw_JW-3" value="" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#d6b656;shadow=0;dashed=0;shape=mxgraph.ios7.icons.microphone;fillColor=#FFD966;" parent="1" vertex="1">
+          <mxGeometry x="74" y="230" width="12" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="aYq7WPbx57LN9MyDw_JW-4" value="" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#FFD966;strokeColor=#FFD966;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.camera2;" parent="1" vertex="1">
+          <mxGeometry x="50" y="301.26" width="49" height="38.94" as="geometry" />
+        </mxCell>
+        <mxCell id="aYq7WPbx57LN9MyDw_JW-5" value="" style="html=1;dashed=0;aspect=fixed;verticalLabelPosition=bottom;verticalAlign=top;align=center;shape=mxgraph.gmdl.gps;strokeColor=#FFD966;fillColor=#FFD966;shadow=0;strokeWidth=2;sketch=0;" parent="1" vertex="1">
+          <mxGeometry x="62" y="400" width="39.8" height="39.8" as="geometry" />
+        </mxCell>
+        <mxCell id="aYq7WPbx57LN9MyDw_JW-7" value="" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#FFD966;shadow=0;dashed=0;shape=mxgraph.ios7.icons.monitor;" parent="1" vertex="1">
+          <mxGeometry x="381.5" y="525" width="36" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="aYq7WPbx57LN9MyDw_JW-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="aYq7WPbx57LN9MyDw_JW-8" target="aYq7WPbx57LN9MyDw_JW-26" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="235" y="352.01" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aYq7WPbx57LN9MyDw_JW-8" value="Infineon MEMS Microphone&lt;div&gt;(Voice Recognition)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="19.5" y="260" width="121" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="aYq7WPbx57LN9MyDw_JW-9" value="Raspberry Pi Cam Module 3&lt;div&gt;(Photo, Filming)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="19.5" y="350" width="130.5" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="aYq7WPbx57LN9MyDw_JW-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.027;entryY=0.714;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="aYq7WPbx57LN9MyDw_JW-11" target="aYq7WPbx57LN9MyDw_JW-25" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="235" y="378.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aYq7WPbx57LN9MyDw_JW-11" value="GPS" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="18.5" y="450" width="121" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TjnXtopHcXqsVp0Jv2_o-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="aYq7WPbx57LN9MyDw_JW-12" target="DHNUySZT8fdxZ6S8IRH9-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="aYq7WPbx57LN9MyDw_JW-12" value="Transparent Display&lt;div&gt;(Transparent Oled Display)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="339.5" y="565" width="121" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="aYq7WPbx57LN9MyDw_JW-16" value="Button" style="labelPosition=center;verticalLabelPosition=middle;align=center;html=1;shape=mxgraph.basic.shaded_button;dx=10;fillColor=#E6E6E6;strokeColor=none;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="29" y="120" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="aYq7WPbx57LN9MyDw_JW-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;" parent="1" source="aYq7WPbx57LN9MyDw_JW-17" target="aYq7WPbx57LN9MyDw_JW-25" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="270" y="349" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aYq7WPbx57LN9MyDw_JW-17" value="Tactile Button&lt;div&gt;(Turn on/ off)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="21.400000000000006" y="190" width="121" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="aYq7WPbx57LN9MyDw_JW-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.045;entryY=0.46;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="150" y="369.0040000000002" as="sourcePoint" />
+            <mxPoint x="349.95000000000005" y="369.0040000000002" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TjnXtopHcXqsVp0Jv2_o-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="aYq7WPbx57LN9MyDw_JW-25" target="aYq7WPbx57LN9MyDw_JW-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TjnXtopHcXqsVp0Jv2_o-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;" parent="1" source="aYq7WPbx57LN9MyDw_JW-25" target="DHNUySZT8fdxZ6S8IRH9-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="aYq7WPbx57LN9MyDw_JW-25" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;System Software (Pi)&lt;div&gt;&lt;br&gt;&lt;div&gt;-Python Scripts(GPIO, Camera)&lt;/div&gt;&lt;div&gt;-Voice Detection&lt;/div&gt;&lt;div&gt;-FastAPI&lt;/div&gt;&lt;div&gt;-Overlay Handle&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="345" y="284.9" width="110" height="184.9" as="geometry" />
+        </mxCell>
+        <mxCell id="aYq7WPbx57LN9MyDw_JW-26" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://icons.diagrams.net/icon-cache1/Fruit-2455/Fruit_iconfree_Filled_Outline_raspberry-healthy-organic-food-fruit_icon-896.svg" parent="1" vertex="1">
+          <mxGeometry x="340" y="284.9" width="54" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="TjnXtopHcXqsVp0Jv2_o-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.625;exitY=0.2;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="aYq7WPbx57LN9MyDw_JW-29" target="aYq7WPbx57LN9MyDw_JW-33" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="515" y="80" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="515" y="95" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aYq7WPbx57LN9MyDw_JW-29" value="Cloud APIs&lt;div&gt;-Google Speech-to-Text&lt;/div&gt;&lt;div&gt;-AI Assistant (GPT)&lt;/div&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="390" y="140" width="200" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="aYq7WPbx57LN9MyDw_JW-32" value="Voice/AI Questions" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="580" y="240" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TjnXtopHcXqsVp0Jv2_o-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.85;exitY=0.95;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="aYq7WPbx57LN9MyDw_JW-33" target="aYq7WPbx57LN9MyDw_JW-39" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="776" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aYq7WPbx57LN9MyDw_JW-33" value="Cloud Database (Mongo DB)&lt;div&gt;-Last Location&lt;/div&gt;&lt;div&gt;-Queries&lt;/div&gt;&lt;div&gt;-Metadata&lt;/div&gt;" style="shape=datastore;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="610" y="50" width="195" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="aYq7WPbx57LN9MyDw_JW-35" value="Store Logs &amp;amp; MetaData" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="450" y="70" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TjnXtopHcXqsVp0Jv2_o-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.96;entryY=0.7;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="aYq7WPbx57LN9MyDw_JW-38" target="aYq7WPbx57LN9MyDw_JW-29" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="645" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aYq7WPbx57LN9MyDw_JW-38" value="Mobile App (Native React)&lt;div&gt;-Maps &amp;amp; Location&lt;/div&gt;&lt;div&gt;-AI Responses&lt;/div&gt;&lt;div&gt;-Photos/Videos&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="590" y="287.45" width="110" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="aYq7WPbx57LN9MyDw_JW-39" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#000033;shape=mxgraph.azure.mobile;pointerEvents=1;" parent="1" vertex="1">
+          <mxGeometry x="580" y="284.9" width="130" height="225.1" as="geometry" />
+        </mxCell>
+        <mxCell id="aYq7WPbx57LN9MyDw_JW-41" value="Send Updates" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="475" y="340" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DHNUySZT8fdxZ6S8IRH9-5" value="User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+          <mxGeometry x="533" y="605" width="34" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="DHNUySZT8fdxZ6S8IRH9-6" value="" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.glasses;" parent="1" vertex="1">
+          <mxGeometry x="535" y="605" width="30" height="12" as="geometry" />
+        </mxCell>
+        <mxCell id="DHNUySZT8fdxZ6S8IRH9-7" value="Smart Glasses" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="500" y="550" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DHNUySZT8fdxZ6S8IRH9-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.533;entryY=0.333;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="DHNUySZT8fdxZ6S8IRH9-7" target="DHNUySZT8fdxZ6S8IRH9-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DHNUySZT8fdxZ6S8IRH9-9" value="GPIO" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="170" y="180" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DHNUySZT8fdxZ6S8IRH9-11" value="" style="html=1;strokeWidth=1;shadow=0;dashed=0;shape=mxgraph.ios7.misc.wifi;fillColor=#007AFF;strokeColor=none;buttonText=;strokeColor2=#222222;fontColor=#222222;fontSize=8;verticalLabelPosition=bottom;verticalAlign=top;align=center;sketch=0;" parent="1" vertex="1">
+          <mxGeometry x="590" y="308.9" width="25" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TjnXtopHcXqsVp0Jv2_o-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.991;entryY=0.714;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="aYq7WPbx57LN9MyDw_JW-25" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="417" as="sourcePoint" />
+            <mxPoint x="455.99" y="449.9696" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TjnXtopHcXqsVp0Jv2_o-16" value="Mobile Data (Hotspot)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="445" y="390" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TjnXtopHcXqsVp0Jv2_o-24" value="" style="endArrow=classic;html=1;rounded=0;entryX=-0.023;entryY=0.329;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="aYq7WPbx57LN9MyDw_JW-39" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="455" y="360" as="sourcePoint" />
+            <mxPoint x="505" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TjnXtopHcXqsVp0Jv2_o-27" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://icons.diagrams.net/icon-cache1/Fruit-2455/Fruit_iconfree_Filled_Outline_raspberry-healthy-organic-food-fruit_icon-896.svg" parent="1" vertex="1">
+          <mxGeometry x="50" y="320.2" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="TjnXtopHcXqsVp0Jv2_o-28" value="CSI-2" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="230" y="338.9" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TjnXtopHcXqsVp0Jv2_o-29" value="PDM" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="170" y="254.9" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TjnXtopHcXqsVp0Jv2_o-31" value="Display" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="337" y="480" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="jDFrdT6laUAicEyp4wvE-2" value="SPI" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="397" y="480" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="jDFrdT6laUAicEyp4wvE-3" value="Display information" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;horizontal=0;" vertex="1" parent="1">
+          <mxGeometry x="745" y="175" width="40" height="120" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

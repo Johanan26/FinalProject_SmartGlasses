@@ -1,0 +1,82 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36" version="28.2.5">
+  <diagram name="Page-1" id="x5b5JGUt3_PYX9nRK91R">
+    <mxGraphModel dx="2377" dy="1208" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" background="light-dark(#FFFFFF,#FFFFFF)" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="-Xxwf9VVFP9l2WZ0prYg-9" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry width="1900" height="1210" as="geometry" />
+        </mxCell>
+        <mxCell id="n-oNkxFnApRrVPOhFhYv-16" value="&lt;font&gt;December&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=light-dark(#000000,#000000);fontSize=30;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="640" y="85" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="-Xxwf9VVFP9l2WZ0prYg-1" value="&lt;b&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Configuration&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;raspberry pi&lt;/span&gt;&lt;/font&gt;&lt;/b&gt;&lt;div&gt;&lt;b&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;br&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Link the pi with GPS module&lt;/span&gt;&lt;/font&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;br&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Test that it works&lt;/span&gt;&lt;/font&gt;&lt;/b&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;fontSize=13;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="200" y="270" width="180" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="-Xxwf9VVFP9l2WZ0prYg-2" value="&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;b&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;Implement the infineon Mems microphone&lt;/font&gt;&lt;/b&gt;&lt;/span&gt;&lt;div&gt;&lt;b&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;br&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Make sure the voice command can be heard&amp;nbsp;&lt;/span&gt;&lt;/font&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;br&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Figure out how to add PDM (pulse dense modulation) library&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;connect OLED display and make it display properly&lt;/span&gt;&lt;/font&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;br&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Test that it works&lt;/span&gt;&lt;/font&gt;&lt;/b&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;fontSize=13;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="440" y="270" width="180" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="-Xxwf9VVFP9l2WZ0prYg-4" value="&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;b style=&quot;&quot;&gt;Connect the camera module and add code to make it take a photo or video&lt;/b&gt;&lt;/font&gt;&lt;/span&gt;&lt;div&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;b&gt;&lt;br&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Create a Mongo Database and make sure it can store information&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;b style=&quot;&quot;&gt;&lt;br&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Test that it works&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;fontSize=13;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="680" y="270" width="180" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="-Xxwf9VVFP9l2WZ0prYg-5" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;b style=&quot;&quot;&gt;Create a link between an existing&amp;nbsp;&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;b&gt;AI and the voice command&amp;nbsp;&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;b style=&quot;&quot;&gt;&lt;br&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Print the respond on the OLED display&lt;/span&gt;&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;fontSize=13;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="920" y="270" width="180" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="-Xxwf9VVFP9l2WZ0prYg-6" value="&lt;b style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;Display location&lt;/font&gt;&lt;/b&gt;&lt;div&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;b style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;&quot;&gt;Display all AI answers&lt;/font&gt;&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;b style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;&quot;&gt;Display photos and Videos&lt;/font&gt;&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;b style=&quot;&quot;&gt;&lt;br&gt;&lt;/b&gt;&lt;b style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;&quot;&gt;Make user friendly and easy&lt;/font&gt;&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;fontSize=13;fillColor=#f8cecc;strokeColor=#b85450;gradientColor=#ea6b66;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="270" width="180" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="-Xxwf9VVFP9l2WZ0prYg-7" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="125" y="70" width="1485" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="n-oNkxFnApRrVPOhFhYv-1" value="&lt;font style=&quot;font-size: 19px;&quot;&gt;&lt;b&gt;Raspberry pi&lt;/b&gt;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;&lt;b&gt;Configuration&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#f8cecc;strokeColor=#b85450;gradientColor=#ea6b66;" parent="-Xxwf9VVFP9l2WZ0prYg-7" vertex="1">
+          <mxGeometry y="60" width="193.69565217391306" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="n-oNkxFnApRrVPOhFhYv-2" value="&lt;font style=&quot;font-size: 19px;&quot;&gt;&lt;b&gt;GPS&lt;/b&gt;&lt;/font&gt;" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#e6d0de;strokeColor=#996185;gradientColor=#d5739d;" parent="-Xxwf9VVFP9l2WZ0prYg-7" vertex="1">
+          <mxGeometry x="161.41304347826087" y="60" width="193.69565217391306" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="n-oNkxFnApRrVPOhFhYv-3" value="&lt;font style=&quot;font-size: 19px;&quot;&gt;&lt;b&gt;Microphone&lt;/b&gt;&lt;/font&gt;" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#e6d0de;strokeColor=#996185;gradientColor=#d5739d;" parent="-Xxwf9VVFP9l2WZ0prYg-7" vertex="1">
+          <mxGeometry x="322.82608695652175" y="60" width="193.69565217391306" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="n-oNkxFnApRrVPOhFhYv-4" value="&lt;b&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;Camera&lt;/font&gt;&lt;/b&gt;&lt;div&gt;&lt;b&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;Module&lt;/font&gt;&lt;/b&gt;&lt;/div&gt;" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#e6d0de;strokeColor=#996185;gradientColor=#d5739d;" parent="-Xxwf9VVFP9l2WZ0prYg-7" vertex="1">
+          <mxGeometry x="645.6521739130435" y="60" width="193.69565217391306" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="n-oNkxFnApRrVPOhFhYv-5" value="&lt;b&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;OLED display&lt;/font&gt;&lt;/b&gt;" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#e6d0de;strokeColor=#996185;gradientColor=#d5739d;" parent="-Xxwf9VVFP9l2WZ0prYg-7" vertex="1">
+          <mxGeometry x="484.23913043478274" y="60" width="193.69565217391306" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="n-oNkxFnApRrVPOhFhYv-6" value="&lt;b&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;Mongo&lt;/font&gt;&lt;/b&gt;&lt;div&gt;&lt;b&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;Database&lt;/font&gt;&lt;/b&gt;&lt;/div&gt;" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#e6d0de;strokeColor=#996185;gradientColor=#d5739d;" parent="-Xxwf9VVFP9l2WZ0prYg-7" vertex="1">
+          <mxGeometry x="807.0652173913044" y="60" width="193.69565217391306" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="n-oNkxFnApRrVPOhFhYv-7" value="&lt;b&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;AI Questions&lt;/font&gt;&lt;/b&gt;" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#e6d0de;strokeColor=#996185;gradientColor=#d5739d;" parent="-Xxwf9VVFP9l2WZ0prYg-7" vertex="1">
+          <mxGeometry x="968.4782608695655" y="60" width="193.69565217391306" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="n-oNkxFnApRrVPOhFhYv-8" value="&lt;b&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;Mobile App&lt;/font&gt;&lt;/b&gt;" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#e6d0de;strokeColor=#996185;gradientColor=#d5739d;" parent="-Xxwf9VVFP9l2WZ0prYg-7" vertex="1">
+          <mxGeometry x="1129.8913043478262" y="60" width="193.69565217391306" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="n-oNkxFnApRrVPOhFhYv-9" value="&lt;b&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;Poster, Video,&lt;/font&gt;&lt;/b&gt;&lt;div&gt;&lt;b&gt;&lt;font style=&quot;font-size: 19px;&quot;&gt;Report&lt;/font&gt;&lt;/b&gt;&lt;/div&gt;" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#f8cecc;strokeColor=#b85450;gradientColor=#ea6b66;" parent="-Xxwf9VVFP9l2WZ0prYg-7" vertex="1">
+          <mxGeometry x="1291.304347826087" y="60" width="193.69565217391306" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="n-oNkxFnApRrVPOhFhYv-14" value="&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;October&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=1;fontSize=30;fontStyle=1" parent="-Xxwf9VVFP9l2WZ0prYg-7" vertex="1">
+          <mxGeometry x="89.99782608695654" y="15" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n-oNkxFnApRrVPOhFhYv-15" value="&lt;font&gt;November&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=light-dark(#000000,#000000);fontSize=30;fontStyle=1" parent="-Xxwf9VVFP9l2WZ0prYg-7" vertex="1">
+          <mxGeometry x="339.67195652173916" y="15" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n-oNkxFnApRrVPOhFhYv-18" value="&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;January&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=30;" parent="-Xxwf9VVFP9l2WZ0prYg-7" vertex="1">
+          <mxGeometry x="722.5" y="15" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n-oNkxFnApRrVPOhFhYv-19" value="&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;February&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=30;" parent="-Xxwf9VVFP9l2WZ0prYg-7" vertex="1">
+          <mxGeometry x="968.4782608695655" y="15" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n-oNkxFnApRrVPOhFhYv-20" value="&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;&lt;b&gt;March&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=30;" parent="-Xxwf9VVFP9l2WZ0prYg-7" vertex="1">
+          <mxGeometry x="1147.1739130434783" y="15" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="n-oNkxFnApRrVPOhFhYv-21" value="&lt;font style=&quot;color: light-dark(rgb(0, 0, 0), rgb(0, 0, 0));&quot;&gt;April&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=30;" parent="-Xxwf9VVFP9l2WZ0prYg-7" vertex="1">
+          <mxGeometry x="1329.7282608695652" y="15" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="-Xxwf9VVFP9l2WZ0prYg-8" value="&lt;b style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;design poster for project&lt;/font&gt;&lt;/b&gt;&lt;div&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;b style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Record video of the project&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;b style=&quot;&quot;&gt;&lt;br&gt;&lt;/b&gt;&lt;b style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Write the project report&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=center;fontSize=13;fillColor=#f8cecc;strokeColor=#b85450;gradientColor=#ea6b66;" vertex="1" parent="1">
+          <mxGeometry x="1400" y="270" width="180" height="280" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
