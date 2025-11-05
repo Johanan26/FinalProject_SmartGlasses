@@ -1,0 +1,20 @@
+from picamzero import Camera
+from time import sleep
+
+
+#Camera
+#Photo
+#cam = Camera()
+#cam.start_preview()
+#sleep(2)
+
+#for i in range(0,10,1):
+#  cam.take_photo("/home/johanan/Pictures/test{f}.jpg".format(f=i))
+
+
+#Video
+cam = Camera()
+cam.start_preview()
+cam.record_video("test.mp4", duration=5)
+for i in range(0,10,1):
+  cam.record_video("/home/johanan/Videos/test{f}.mp4".format(f=i), duration = 5)
