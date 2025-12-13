@@ -6,14 +6,14 @@ class PhotoCollection(Collection):
 
     def __init__(self, user_id: int, data: str):
         self.user_id = user_id
-        self.data = data
+        self.data = data #base64 photo string
 
 class VideoCollection(Collection):
     _name = "video"
 
     def __init__(self, user_id: int, data: str):
         self.user_id = user_id
-        self.data = data
+        self.data = data #base64 video string
 
 class LocationCollection(Collection):
     _name = "location"
