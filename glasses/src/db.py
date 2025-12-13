@@ -5,8 +5,8 @@ import os
 
 class DB:
     def __init__(self):
-        uri = os.environ.get("DB_URI")
-        client = MongoClient(uri, server_api=ServerApi('1'))
+        uri = os.environ.get("DB_URI") # Mongo connection string from env
+        client = MongoClient(uri, server_api=ServerApi('1'))  #creates client
         try:
             client.admin.command('ping')
             print("Pinged your deployment. You successfully connected to MongoDB!")
@@ -17,8 +17,8 @@ class DB:
         self.db = client["brain"]
 
     def write_collection(self, collection: Collection):
-        db_collection = self.db[collection._name]
-        dict_collection = collection.__dict__
+        db_collection = self.db[collection._name] # pick Mongo collection by _name
+        dict_collection = collection.__dict__ # convert object to dict
 
         db_collection.insert_one(dict_collection)
 
