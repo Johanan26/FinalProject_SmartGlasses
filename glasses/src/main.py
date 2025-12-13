@@ -1,6 +1,7 @@
 from camera import Camera
 from gps import Gps
 from db import DB
+from dbcollections import LocationCollection
 
 def main():
     camera = Camera()
@@ -18,6 +19,7 @@ def main():
             db.write_collection(collection)
         elif inp == "l":
             collection = gps.get_location()
+            db.clear_collection(LocationCollection._name)
             db.write_collection(collection)
         else:
             print("command doesn't exist: " + inp + " commands: [p, v, l]")

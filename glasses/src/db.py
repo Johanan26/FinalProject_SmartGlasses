@@ -21,3 +21,7 @@ class DB:
         dict_collection = collection.__dict__
 
         db_collection.insert_one(dict_collection)
+
+    def clear_collection(self, name: str):
+        db_collection = self.db[name]
+        db_collection.delete_many({})

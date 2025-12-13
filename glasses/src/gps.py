@@ -39,6 +39,7 @@ class Gps:
 
                 # A = valid fix, V = no fix
                 if getattr(msg, "status", "V") != "A":
+                    print("Waiting for gps fix!")
                     break   # break inner for, read another line
 
                 lat = msg.latitude
@@ -47,3 +48,4 @@ class Gps:
 
         print(f"Warining: No GPS fix after {timeout} seconds.")
         return None
+    
