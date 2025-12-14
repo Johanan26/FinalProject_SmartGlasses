@@ -19,11 +19,12 @@ def main():
             db.write_collection(collection)
         elif inp == "l":
             collection = gps.get_location()
+            if collection == None:
+                continue
             db.clear_collection(LocationCollection._name)
             db.write_collection(collection)
         else:
             print("command doesn't exist: " + inp + " commands: [p, v, l]")
-
 
 if __name__ == "__main__":
     main()
