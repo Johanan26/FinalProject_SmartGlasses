@@ -1,33 +1,27 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import { auth } from "../config/firebase";
 import { useNavigate } from "react-router-dom";
 
-export default function Register() {
+export default function Login() {
   const [email, setEmail] = useState<string | null>(null);
   const [password, setPassword] = useState<string | null>(null);
-  const [confirmPassword, setConfirmPassword] = useState<string | null>(null);
 
   const navigate = useNavigate();
 
-  const Signup = async (e: React.FormEvent) => {
+  const Login = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !password || !confirmPassword) {
-      return;
-    }
-
-    if (password != confirmPassword) {
+    if (!email || !password) {
       return;
     }
 
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      await signInWithEmailAndPassword(auth, email, password);
     } catch (error: any) {
-      console.log(error);
       return;
     }
 
-    navigate("/", { replace: true });
+    navigate("/", { replace: true })
   };
 
   return (
@@ -35,10 +29,10 @@ export default function Register() {
       <div className="flex min-h-screen items-center justify-center bg-gray-100">
         <form
           className="w-full max-w-sm bg-white border border-gray-200 rounded-lg p-6 shadow-sm"
-          onSubmit={(e) => Signup(e)}
+          onSubmit={(e) => Login(e)}
         >
           <div className="flex items-center justify-center text-bold text-3xl py-2">
-            Sign Up
+            Login
           </div>
           <div>
             <label
@@ -74,29 +68,12 @@ export default function Register() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <div>
-            <label
-              className="block text-sm font-medium text-gray-700 mb-1"
-              htmlFor="Confirm password"
-            >
-              {" "}
-              Confirm Password{" "}
-            </label>
-            <input
-              id="password"
-              name="Confirm password"
-              type="password"
-              className="w-full round-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2"
-              required
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-          </div>
           <div className="flex justify-between">
-            <button onClick={(_) => navigate("/login", { replace: true })}>
+            <button onClick={(_) => navigate("/register", { replace: true })}>
               {" "}
-              Login
+              Sign up
             </button>
-            <button type="submit">Sign up</button>
+            <button type="submit">Login</button>
           </div>
         </form>
       </div>
