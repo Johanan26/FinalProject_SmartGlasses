@@ -1,28 +1,24 @@
 from camera import Camera
 from gps import Gps
-from db import DB
-from dbcollections import LocationCollection
 
 def main():
     camera = Camera()
-    db = DB()
     gps = Gps()
 
     while True:
         inp = input("What action do you want to take: ")
 
         if inp == "p":
-            collection = camera.make_photo()
-            db.write_collection(collection)
+            photo = camera.make_photo()
+            
         elif inp == "v":
-            collection = camera.make_video()
-            db.write_collection(collection)
+            video = camera.make_video()
         elif inp == "l":
-            collection = gps.get_location()
-            if collection == None:
+            location = gps.get_location()
+            if location == None:
                 continue
-            db.clear_collection(LocationCollection._name)
-            db.write_collection(collection)
+            
+            
         else:
             print("command doesn't exist: " + inp + " commands: [p, v, l]")
 
