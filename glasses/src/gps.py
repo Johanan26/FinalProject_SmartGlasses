@@ -1,8 +1,8 @@
+from models import Location
 import sys
 import serial #read GPS from UART
 import pynmea2 #parse NMEA GPS messages
 import time
-from dbcollections import LocationCollection
 
 class Gps:
     def __init__(self, port="/dev/serial0", baudrate=9600, timeout=0.5):
@@ -43,7 +43,7 @@ class Gps:
 
                 lat = msg.latitude
                 lng = msg.longitude
-                return LocationCollection(0, lat, lng)  #build location object (user_id=0)
+                return Location(lat, lng)
 
         print(f"Warining: No GPS fix after {timeout} seconds.")
         return None

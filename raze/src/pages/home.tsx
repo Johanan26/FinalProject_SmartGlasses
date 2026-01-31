@@ -1,10 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 type TileProps = {
   title: string;
   subtitle?: string;
   onClick: () => void;
 };
+
 
 function Tile({ title, subtitle, onClick }: TileProps) {
   return (
@@ -19,23 +21,26 @@ function Tile({ title, subtitle, onClick }: TileProps) {
 }
 
 export default function Home() {
+    
+    const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
       <div className="flex flex-col gap-4 items-center">
         <Tile
           title="AI Questions"
           subtitle="Ask a question and get an answer."
-          onClick={() => alert("AI Questions")}
+          onClick={() => navigate("/ai_question", { replace: true })}
         />
         <Tile
           title="Photos / Videos"
           subtitle="View or upload your media."
-          onClick={() => alert("Photos / Videos")}
+          onClick={() => navigate("/photo_video", { replace: true })}
         />
         <Tile
           title="Last Location"
           subtitle="Check your last saved location."
-          onClick={() => alert("Last Location")}
+          onClick={() => navigate("/last_location", { replace: true })}
         />
       </div>
     </div>
