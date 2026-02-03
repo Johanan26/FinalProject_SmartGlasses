@@ -21,22 +21,22 @@ export default function Login() {
       return;
     }
 
-    navigate("/", { replace: true })
+    navigate("/home", { replace: true })
   };
 
   return (
     <>
-      <div className="flex min-h-screen items-center justify-center bg-gray-100">
+      <div className="flex min-h-screen items-center justify-center bg-slate-900">
         <form
-          className="w-full max-w-sm bg-white border border-gray-200 rounded-lg p-6 shadow-sm"
+          className="w-full max-w-sm bg-slate-700 rounded-lg p-6 shadow-sm"
           onSubmit={(e) => Login(e)}
         >
-          <div className="flex items-center justify-center text-bold text-3xl py-2">
+          <div className="flex items-center justify-center text-white text-3xl py-2">
             Login
           </div>
           <div>
             <label
-              className="block text-sm font-medium text-gray-700 mb-1"
+              className="block text-sm-white font-medium text-white mb-1"
               htmlFor="email"
             >
               {" "}
@@ -45,7 +45,7 @@ export default function Login() {
             <input
               id="email"
               type="email"
-              className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2"
+              className="w-full rounded-md border border-zinc-400 px-3 py-2 focus:outline-none focus:ring-2"
               required
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -53,7 +53,7 @@ export default function Login() {
 
           <div>
             <label
-              className="block text-sm font-medium text-gray-700 mb-1"
+              className="block text-sm font-medium text-white mb-1"
               htmlFor="password"
             >
               {" "}
@@ -63,12 +63,12 @@ export default function Login() {
               id="password"
               name="password"
               type="password"
-              className="w-full round-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2"
+              className="w-full rounded-md border border-zinc-400 px-3 py-2 focus:outline-none focus:ring-2"
               required
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <div className="flex justify-between">
+          <div className="flex justify-between text-white">
             <button onClick={(_) => navigate("/register", { replace: true })}>
               {" "}
               Sign up
