@@ -7,6 +7,6 @@ export default function Photo_video() {
 
     navigate("/photo_video", { replace: true })
     return <>
-    
+      
      </>; 
      }
