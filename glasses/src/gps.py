@@ -43,7 +43,7 @@ class Gps:
 
                 lat = msg.latitude
                 lng = msg.longitude
-                return Location(lat, lng)
+                return Location(lng, lat)
 
         print(f"Warining: No GPS fix after {timeout} seconds.")
         return None
