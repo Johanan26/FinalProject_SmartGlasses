@@ -1,11 +1,23 @@
+from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Header, Depends
 from firebase_admin import auth, credentials, initialize_app
-from db import DB
+from .db import DB
 from .models import UploadPhoto, UploadVideo, UploadLocation
 from .dbcollections import LocationCollection, VideoCollection, PhotoCollection
+from fastapi.middleware.cors import CORSMiddleware
+
+load_dotenv()
 
 app = FastAPI()
 db = DB()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 cred = credentials.Certificate("service.json")
 initialize_app(cred)
@@ -43,8 +55,11 @@ async def upload_video(video: UploadVideo, user=Depends(get_current_user)):
     
 @app.get("/gallery")
 async def get_gallery(user=Depends(get_current_user)):
-    videos = list(db.query_collection(VideoCollection, filter={"user_id": user["uid"]}))
-    photos = list(db.query_collection(PhotoCollection, filter={"user_id": user["uid"]}))
+    videos = list(db.query_collection(VideoCollection, filter={"user_id": 0}))
+    photos = list(db.query_collection(PhotoCollection, filter={"user_id": 0}))
+    
+    for item in videos + photos:
+        item["_id"] = ""
     
     return {
         "videos": videos,
@@ -55,8 +70,10 @@ async def get_gallery(user=Depends(get_current_user)):
 @app.get("/get_last_location")
 async def get_last_location(user=Depends(get_current_user)):
     # we are querying multiple locations here but we should expect to only obtain one location
-    locations = list(db.query_collection(LocationCollection, filter={"user_id": user["uid"]}))
-    return {"location": locations[0]}
+    locations = list(db.query_collection(LocationCollection, filter={"user_id": 0}))
+    location = locations[0]
+    location["_id"] = ""
+    return {"location": location}
 
 @app.post("/upload_location")
 async def upload_last_location(location: UploadLocation, user=Depends(get_current_user)):

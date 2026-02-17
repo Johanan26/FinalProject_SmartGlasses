@@ -1,6 +1,6 @@
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
-from dbcollections import Collection, LocationCollection
+from .dbcollections import Collection, LocationCollection
 import os
 
 class DB:

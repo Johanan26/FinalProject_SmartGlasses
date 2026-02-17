@@ -1,66 +1,36 @@
-import dbus
-import dbus.service
-import dbus.mainloop.glib 
-from gi.repository import GLib
+import subprocess
+import time
 
-class Agent(dbus.service.Object):
+def setup_bluetooth_pan():
+    """Make Pi discoverable and wait for phone to connect via Bluetooth PAN"""
     
-    def __init__(self, bus, path):
-        super().__init__(bus, path) 
-        
-    @dbus.service.method("org.bluez.Agent1", in_signature="os", out_signature="")
-    def DisplayPasskey(self, device, passkey):
-        print(f"\n{'='*50}")
-        print(f"Pairing Code: {passkey:06d}")
-        print(f"Device: {device}")
-        print(f"Cofirm this code on your phone!")
-        print(f"\n{'='*50}")
-        
-    @dbus.service.method("org.bluez.Agent1", in_signature="o", out_signature="")
-    def RequestAuthorization(self, device):
-        print(f"Authorizing {device}")
-        return
+    print("\n" + "="*50)
+    print("BLUETOOTH PAIRING")
+    print("="*50)
+    print("\n1. On your phone, go to Bluetooth settings")
+    print("2. Enable 'Bluetooth tethering' in hotspot settings")
+    print("3. Scan and pair with this device")
+    print("\nPIN CODE: 0000")
+    print("\n" + "="*50 + "\n")
     
-    @dbus.service.method("org.bluez.Agent1", in_signature="", out_signature="")
-    def Cancel(self):
-        print("Pairing cancelled")
+    subprocess.run(["bluetoothctl", "discoverable", "on"])
+    subprocess.run(["bluetoothctl", "pairable", "on"])
+    subprocess.run(["bluetoothctl", "agent", "on"])
+    subprocess.run(["bluetoothctl", "default-agent"])
     
-def make_discoverable():
-    dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
-    bus = dbus.SystemBus()
+    print("Waiting for connection...")
     
-    # Get Bluetooth adapter
-    adapter_path = '/org/bluez/hci0'
-    adapter = dbus.Interface(bus.get_object('org.bluez', adapter_path),
-                            'org.bluez.Adapter1')
+    while True:
+        result = subprocess.run(["ip", "link", "show", "bnep0"], 
+                              capture_output=True, text=True)
+        if result.returncode == 0:
+            print("\nPhone connected!")
+            break
+        time.sleep(2)
     
-    # Power on and make discoverable
-    adapter.Set('org.bluez.Adapter1', 'Powered', dbus.Boolean(True))
-    adapter.Set('org.bluez.Adapter1', 'Discoverable', dbus.Boolean(True))
-    adapter.Set('org.bluez.Adapter1', 'Pairable', dbus.Boolean(True))
-    adapter.Set('org.bluez.Adapter1', 'DiscoverableTimeout', dbus.UInt32(0))  # 0 = always discoverable
+    subprocess.run(["sudo", "dhclient", "bnep0"])
     
-    print("Raspberry Pi is now discoverable!")
-    print("Look for it on your Android phone's Bluetooth settings")
-    
-    # Register pairing agent
-    agent_path = "/test/agent"
-    agent = Agent(bus, agent_path)
-    
-    agent_manager = dbus.Interface(bus.get_object('org.bluez', '/org/bluez'),
-                                   'org.bluez.AgentManager1')
-    agent_manager.RegisterAgent(agent_path, "DisplayOnly")
-    agent_manager.RequestDefaultAgent(agent_path)
-    
-    print("Pairing agent registered. Waiting for connections...")
-    
-    # Run the main loop
-    mainloop = GLib.MainLoop()
-    try:
-        mainloop.run()
-    except KeyboardInterrupt:
-        print("\nStopping...")
-        adapter.Set('org.bluez.Adapter1', 'Discoverable', dbus.Boolean(False))
+    print("Internet connected! Ready to use.\n")
 
 if __name__ == "__main__":
-    make_discoverable()
+    setup_bluetooth_pan()
