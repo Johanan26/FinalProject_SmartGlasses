@@ -1,4 +1,4 @@
-import whisper
+from faster_whisper import WhisperModel
 import sounddevice as sd
 from scipy.io.wavfile import write
 
@@ -12,9 +12,10 @@ sd.wait()
 write("recorded.wav", fs, audio)
 print("Recording finished")
 
-model = whisper.load_model("base")
+model = WhisperModel("base", compute_type="int8")
 
-result = model.transcribe("recorded.wav")
+segments, info = model.transcribe("recorded.wav")
 
 print("You said:")
-print(result["text"])
+for segment in segments:
+    print(segment.text)
