@@ -1,34 +1,54 @@
 import subprocess
 import time
+import pexpect
+
+def wait_for_bnep():
+    print("Waiting for network interface (bnep0)...")
+    while True:
+        result = subprocess.run(
+            ["ip", "link", "show", "bnep0"],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL
+        )
+        if result.returncode == 0:
+            return
+        time.sleep(2)
+        
+def start_pan(mac):
+    subprocess.Popen(
+        ["sudo", "bt-network", "-c", mac, "nap",],
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL
+    )
 
 def setup_bluetooth_pan():
     """Make Pi discoverable and wait for phone to connect via Bluetooth PAN"""
     
-    print("\n" + "="*50)
-    print("BLUETOOTH PAIRING")
-    print("="*50)
-    print("\n1. On your phone, go to Bluetooth settings")
-    print("2. Enable 'Bluetooth tethering' in hotspot settings")
-    print("3. Scan and pair with this device")
-    print("\nPIN CODE: 0000")
-    print("\n" + "="*50 + "\n")
+    child = pexpect.spawn("bluetoothctl", encoding="utf-8")
     
-    subprocess.run(["bluetoothctl", "discoverable", "on"])
-    subprocess.run(["bluetoothctl", "pairable", "on"])
-    subprocess.run(["bluetoothctl", "agent", "on"])
-    subprocess.run(["bluetoothctl", "default-agent"])
+    child.sendline("power on")
+    child.sendline("discoverable on")
+    child.sendline("pairable on")
+    child.sendline("agent NoInputNoOutput")
+    child.sendline("default-agent")
     
     print("Waiting for connection...")
     
-    while True:
-        result = subprocess.run(["ip", "link", "show", "bnep0"], 
-                              capture_output=True, text=True)
-        if result.returncode == 0:
-            print("\nPhone connected!")
-            break
-        time.sleep(2)
+    phone_mac = None
     
-    subprocess.run(["sudo", "dhclient", "bnep0"])
+    while True:
+        try:
+            child.expect(r"Device ([0-9A-F:]{17})", timeout=600)
+            phone_mac = child.match.group(1)
+            child.expect(r'\[agent\] Confirm passkey \d+ \(yes/no\):', timeout=30)
+        except pexpect.TIMEOUT:
+            print("waiting to pair...")
+            continue
+        break
+    
+    child.sendline("yes")
+    
+    start_pan(phone_mac)
     
     print("Internet connected! Ready to use.\n")
 
