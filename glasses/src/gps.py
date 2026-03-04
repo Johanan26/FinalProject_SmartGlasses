@@ -17,14 +17,11 @@ class Gps:
         except serial.SerialException as e:
             print(f"[ERROR] Could not open {port}: {e}")
             sys.exit(1)
-    
-    def get_location(self, timeout=30):
-        end_time = time.time() + timeout #stop trying after X seconds
-
-        while time.time() < end_time:
+            
+    def run(self):
+        while True:
             raw = self.ser.readline().decode(errors="ignore") #read one line from GPS
-
-           
+                
             for chunk in raw.split('$'):  #Split in case multiple sentences come in one read
                 if not chunk.startswith('GPRMC'):
                     continue
@@ -38,13 +35,10 @@ class Gps:
 
                 
                 if getattr(msg, "status", "V") != "A": #A = valid fix, V = no fix
-                    print("Waiting for gps fix!")
-                    break   # break inner for, read another line
-
+                    # we are waiting for a valid gps fix
+                    continue   # break inner for, read another line
+                
+                #TODO: upon receiving the location we will need to send it to the backend
                 lat = msg.latitude
                 lng = msg.longitude
-                return Location(lng, lat)
-
-        print(f"Warining: No GPS fix after {timeout} seconds.")
-        return None
-    
+                # return Location(lng, lat)

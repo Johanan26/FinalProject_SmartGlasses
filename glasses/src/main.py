@@ -1,26 +1,35 @@
 from camera import Camera
 from gps import Gps
+from microphone import RazeListener
+import threading
+import time
+
 
 def main():
-    camera = Camera()
+    listener = RazeListener(model_size="base", compute_type="int8")
+    
+    camera = Camera(listener)
     gps = Gps()
 
-    while True:
-        inp = input("What action do you want to take: ")
+    camera_thread = threading.Thread(
+        target=camera.run,
+        daemon=True
+    )
 
-        if inp == "p":
-            photo = camera.make_photo()
-            
-        elif inp == "v":
-            video = camera.make_video()
-        elif inp == "l":
-            location = gps.get_location()
-            if location == None:
-                continue
-            
-            
-        else:
-            print("command doesn't exist: " + inp + " commands: [p, v, l]")
+    gps_thread = threading.Thread(
+        target=gps.run,
+        daemon=True
+    )
+    
+    listener.start()
+    camera_thread.start()
+    gps_thread.start()    
+    
+    try:
+        while True:
+            time.sleep(1)
+    except:
+        listener.stop()
 
 if __name__ == "__main__":
     main()
