@@ -1,8 +1,11 @@
+from urllib.parse import urljoin
 from models import Location
+import requests
 import sys
 import serial #read GPS from UART
 import pynmea2 #parse NMEA GPS messages
 import time
+import os
 
 class Gps:
     def __init__(self, port="/dev/serial0", baudrate=9600, timeout=0.5):
@@ -19,6 +22,8 @@ class Gps:
             sys.exit(1)
             
     def run(self):
+        url = os.environ.get("BACKEND_URL")
+        
         while True:
             raw = self.ser.readline().decode(errors="ignore") #read one line from GPS
                 
@@ -42,3 +47,6 @@ class Gps:
                 lat = msg.latitude
                 lng = msg.longitude
                 # return Location(lng, lat)
+                url = urljoin(os.environ.get("BACKEND_URL"), "/upload_location")
+                requests.post(url, {"lat": lat, "long": lng})
+                
