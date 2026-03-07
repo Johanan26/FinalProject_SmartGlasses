@@ -24,3 +24,11 @@ class LocationCollection(Collection):
         self.user_id = user_id
         self.long = long
         self.lat = lat
+
+class AIQuestion(Collection):
+    _name = "questions"
+    
+    def __init__(self, user_id: str, question: str, answer: str):
+        self.user_id = user_id
+        self.question = question
+        self.answer = answer
