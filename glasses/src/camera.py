@@ -3,6 +3,9 @@ from pathlib import Path
 from models import FileData
 from typing import TYPE_CHECKING
 import base64
+import requests
+import os
+from urllib.parse import urljoin
 
 if TYPE_CHECKING:
     from microphone import RazeListener
@@ -18,11 +21,13 @@ class Camera:
             
             if cmd:
                 print(f"cmd: {cmd}")
-                
+                url = os.environ.get("BACKEND_URL")
                 if "take photo" in cmd.lower():
-                    self.make_photo()
+                    photo = self.make_photo()
+                    requests.post(urljoin(url, "/upload_photo"), photo.__dict__)
                 elif "take video" in cmd.lower():
-                    self.make_video()
+                    video = self.make_video()
+                    requests.post(urljoin(url, "/upload_video"), video.__dict__)
 
     def make_photo(self) -> FileData:
         loc = self.cam.take_photo("/home/johanan/Pictures/video{f}.jpg".format(f=0))

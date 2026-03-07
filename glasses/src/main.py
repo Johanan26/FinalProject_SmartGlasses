@@ -1,9 +1,11 @@
+from dotenv import load_dotenv
 from camera import Camera
 from gps import Gps
 from microphone import RazeListener
 import threading
 import time
 
+load_dotenv()
 
 def main():
     listener = RazeListener(model_size="base", compute_type="int8")
