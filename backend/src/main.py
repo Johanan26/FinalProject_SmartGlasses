@@ -2,9 +2,11 @@ from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Header, Depends
 from firebase_admin import auth, credentials, initialize_app
 from .db import DB
-from .models import UploadPhoto, UploadVideo, UploadLocation
-from .dbcollections import LocationCollection, VideoCollection, PhotoCollection
+from .models import UploadPhoto, UploadVideo, UploadLocation, UploadQuestion
+from .dbcollections import LocationCollection, VideoCollection, PhotoCollection, AIQuestion
 from fastapi.middleware.cors import CORSMiddleware
+from google import genai
+import os
 
 load_dotenv()
 
@@ -22,6 +24,8 @@ app.add_middleware(
 cred = credentials.Certificate("service.json")
 initialize_app(cred)
 
+client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
+
 def get_current_user(authorization: str = Header(...)):
     if not authorization.startswith("Bearer "):
         raise HTTPException(status_code=401, detail="Invalid auth header")
@@ -34,23 +38,29 @@ def get_current_user(authorization: str = Header(...)):
     except Exception:
         raise HTTPException(status_code=401, detail="Invalid or expired token")
 
-@app.get("/ai_question")
-async def root():
-    return {"message": "Hello World"}
+@app.get("/get_questions")
+async def root(user=Depends(get_current_user)):
+    questions = list(db.query_collection(AIQuestion, filter={"user_id": 0}))
+    return {"questions": questions}
 
-@app.post("/upload_question")
-async def upload_question():
-    ...
+@app.post("/ask_question")
+async def upload_question(question: UploadQuestion, user=Depends(get_current_user)):
+    response = client.models.generate_content(
+        model="gemini-2.0-flash",
+        contents=question.data
+    )
+    db.write_collection(AIQuestion(0, question.data, response.text))
+    return response.text
     
 @app.post("/upload_photo")
 async def upload_photo(photo: UploadPhoto, user=Depends(get_current_user)):
-    photo_collection = PhotoCollection(user["uid"], photo.data)
+    photo_collection = PhotoCollection(0, photo.data)
     db.write_collection(photo_collection)
     
 
 @app.post("/upload_video")
 async def upload_video(video: UploadVideo, user=Depends(get_current_user)):
-    video_collection = VideoCollection(user["uid"], video.data)
+    video_collection = VideoCollection(0 , video.data)
     db.write_collection(video_collection)
     
 @app.get("/gallery")
