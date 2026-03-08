@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from .models import FileData
 from picamzero import Camera as PicamzeroCamera
 from pathlib import Path
@@ -8,7 +10,7 @@ import os
 from urllib.parse import urljoin
 
 if TYPE_CHECKING:
-    from microphone import RazeListener
+    from .microphone import RazeListener
 
 class Camera:
     def __init__(self, listener: RazeListener):

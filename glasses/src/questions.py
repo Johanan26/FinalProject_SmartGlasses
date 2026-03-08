@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from urllib.parse import urljoin
 from typing import TYPE_CHECKING
 
@@ -5,7 +7,7 @@ import requests
 import os
 
 if TYPE_CHECKING:
-    from microphone import RazeListener
+    from .microphone import RazeListener
     
 class QuestionHandler:
     def __init__(self, listener: RazeListener):
