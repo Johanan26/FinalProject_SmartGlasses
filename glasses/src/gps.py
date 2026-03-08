@@ -43,10 +43,9 @@ class Gps:
                     # we are waiting for a valid gps fix
                     continue   # break inner for, read another line
                 
-                #TODO: upon receiving the location we will need to send it to the backend
                 lat = msg.latitude
                 lng = msg.longitude
-                # return Location(lng, lat)
+                
                 url = urljoin(os.environ.get("BACKEND_URL"), "/upload_location")
                 requests.post(url, {"lat": lat, "long": lng})
                 
