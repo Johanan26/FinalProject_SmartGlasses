@@ -9,7 +9,7 @@ class QuestionHandler:
 
     def handle_command(self, cmd: str) -> None:
         url = os.environ.get("BACKEND_URL")
-        request = requests.post(urljoin(url, "ask_question"), {
+        request = requests.post(urljoin(url, "ask_question"), json={
             "data": cmd
         })
         
