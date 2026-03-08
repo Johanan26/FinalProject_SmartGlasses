@@ -6,7 +6,9 @@ from .models import UploadPhoto, UploadVideo, UploadLocation, UploadQuestion
 from .dbcollections import LocationCollection, VideoCollection, PhotoCollection, AIQuestion
 from fastapi.middleware.cors import CORSMiddleware
 from google import genai
+from google.genai.errors import ClientError
 import os
+import time
 
 load_dotenv()
 
@@ -26,6 +28,33 @@ initialize_app(cred)
 
 client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
 
+GEMINI_MODELS = [
+    "gemini-2.0-flash-lite",
+    "gemini-2.0-flash",
+    "gemini-1.5-flash",
+]
+
+def generate_with_fallback(contents: str, retries: int = 2) -> str:
+    """Try each model in order; fall back to the next on rate-limit errors."""
+    last_err = None
+    for model in GEMINI_MODELS:
+        for attempt in range(retries):
+            try:
+                response = client.models.generate_content(
+                    model=model, contents=contents
+                )
+                return response.text
+            except ClientError as e:
+                last_err = e
+                if e.code == 429:
+                    wait = min(2 ** attempt, 8)
+                    print(f"[gemini] {model} rate-limited, waiting {wait}s…")
+                    time.sleep(wait)
+                    continue
+                raise
+        print(f"[gemini] {model} exhausted, trying next model…")
+    raise last_err
+
 @app.get("/get_questions")
 async def get_questions():
     questions = list(db.query_collection(AIQuestion, filter={"user_id": 0}))
@@ -33,12 +62,9 @@ async def get_questions():
 
 @app.post("/ask_question")
 async def upload_question(question: UploadQuestion):
-    response = client.models.generate_content(
-        model="gemini-2.0-flash",
-        contents=question.data
-    )
-    db.write_collection(AIQuestion(0, question.data, response.text))
-    return response.text
+    answer = generate_with_fallback(question.data)
+    db.write_collection(AIQuestion(0, question.data, answer))
+    return answer
     
 @app.post("/upload_photo")
 async def upload_photo(photo: UploadPhoto):

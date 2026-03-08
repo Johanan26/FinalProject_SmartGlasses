@@ -15,10 +15,10 @@ class Camera:
         url = os.environ.get("BACKEND_URL")
         if "take photo" in cmd:
             photo = self.make_photo()
-            requests.post(urljoin(url, "/upload_photo"), photo.__dict__)
+            requests.post(urljoin(url, "/upload_photo"), json=photo.__dict__)
         elif "take video" in cmd:
             video = self.make_video()
-            requests.post(urljoin(url, "/upload_video"), video.__dict__)
+            requests.post(urljoin(url, "/upload_video"), json=video.__dict__)
 
     def make_photo(self) -> FileData:
         loc = self.cam.take_photo("/home/johanan/Pictures/video{f}.jpg".format(f=0))
