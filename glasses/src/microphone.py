@@ -260,24 +260,32 @@ class RazeListener:
     def _handle_text(self, text: str) -> None:
         """
         State machine:
-        - If idle: look for wake phrase -> start session.
-        - If active: append utterance; if end phrase -> finalize.
+        - Wake phrase + command in same utterance -> dispatch immediately.
+        - Wake phrase alone -> start buffering session.
+        - Wake phrase while already active -> finalize old session first.
+        - Active session + end phrase -> finalize.
+        - Active session + normal text -> append to buffer.
         """
         low = text.lower().strip()
 
-        # If idle, detect wake phrase
-        if not self.is_active():
-            if self.wake_phrase in low:
-                # Keep anything after the wake phrase in the same utterance
-                idx = low.find(self.wake_phrase)
-                after = text[idx + len(self.wake_phrase):].strip(" ,.!?").strip()
-                self._start_session(initial_text_after_wake=after)
+        if self.wake_phrase in low:
+            if self.is_active():
+                self._finalize_session()
+
+            idx = low.find(self.wake_phrase)
+            after = text[idx + len(self.wake_phrase):].strip(" ,.!?").strip()
+
+            if after:
+                self.command_queue.put(after)
+            else:
+                self._start_session()
             return
 
-        # If active, check end phrases
+        if not self.is_active():
+            return
+
         for p in self.end_phrases:
             if p in low:
-                # Remove everything from end phrase onwards (optional)
                 cut = low.find(p)
                 kept = text[:cut].strip(" ,.!?").strip()
                 if kept:
@@ -285,5 +293,4 @@ class RazeListener:
                 self._finalize_session()
                 return
 
-        # Otherwise, just append whole utterance
         self._append_to_buffer(text)
