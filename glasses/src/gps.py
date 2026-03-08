@@ -1,5 +1,5 @@
+from .models import Location
 from urllib.parse import urljoin
-from models import Location
 import requests
 import sys
 import serial #read GPS from UART
