@@ -19,15 +19,19 @@ class Camera:
         while True:
             cmd = self.listener.get_command()
             
-            if cmd:
-                print(f"cmd: {cmd}")
-                url = os.environ.get("BACKEND_URL")
-                if "take photo" in cmd.lower():
-                    photo = self.make_photo()
-                    requests.post(urljoin(url, "/upload_photo"), photo.__dict__)
-                elif "take video" in cmd.lower():
-                    video = self.make_video()
-                    requests.post(urljoin(url, "/upload_video"), video.__dict__)
+            if not cmd:
+                continue
+            
+            cmd = cmd.lower()
+            
+            print(f"cmd: {cmd}")
+            url = os.environ.get("BACKEND_URL")
+            if "take photo" in cmd and not "question" in cmd:
+                photo = self.make_photo()
+                requests.post(urljoin(url, "/upload_photo"), photo.__dict__)
+            elif "take video" in cmd and not "question" in cmd:
+                video = self.make_video()
+                requests.post(urljoin(url, "/upload_video"), video.__dict__)
 
     def make_photo(self) -> FileData:
         loc = self.cam.take_photo("/home/johanan/Pictures/video{f}.jpg".format(f=0))

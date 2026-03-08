@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 from camera import Camera
 from gps import Gps
 from microphone import RazeListener
+from questions import QuestionHandler
 import threading
 import time
 
@@ -12,6 +13,7 @@ def main():
     
     camera = Camera(listener)
     gps = Gps()
+    question = QuestionHandler(listener)
 
     camera_thread = threading.Thread(
         target=camera.run,
@@ -23,9 +25,15 @@ def main():
         daemon=True
     )
     
+    question_thread = threading.Thread(
+        target=question.run,
+        daemon=True
+    )
+    
     listener.start()
     camera_thread.start()
     gps_thread.start()    
+    question_thread.start()
     
     try:
         while True:
