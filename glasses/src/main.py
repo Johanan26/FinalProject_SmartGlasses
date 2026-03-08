@@ -29,7 +29,7 @@ def dispatch_loop(listener: RazeListener, camera: Camera, question: QuestionHand
 
 
 def main():
-    listener = RazeListener(model_size="base", compute_type="int8")
+    listener = RazeListener(model_size="tiny", compute_type="int8")
 
     camera = Camera()
     gps = Gps()

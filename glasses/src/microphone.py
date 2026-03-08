@@ -29,13 +29,13 @@ class RazeListener:
         min_speech_seconds: float = 0.25,
         silence_end_seconds: float = 0.6,
         preroll_seconds: float = 0.4,
-        max_utterance_seconds: float = 15.0,
-        beam_size: int = 5,
+        max_utterance_seconds: float = 10.0,
+        beam_size: int = 1,
         language: Optional[str] = "en",  # set "en" for speed if only English
         on_transcript: Optional[Callable[[str], None]] = None,
 
         # Wake / session control
-        wake_phrase: str = "hey raze",
+        wake_phrase: str = "hey glasses",
         end_phrases: Optional[List[str]] = None,  # e.g. ["stop raze", "thanks raze"]
         inactivity_end_seconds: float = 3.0,       # end session if no new utterances for X seconds
     ):
@@ -238,11 +238,13 @@ class RazeListener:
                             audio,
                             language=self.language,
                             beam_size=self.beam_size,
-                            vad_filter=False,
+                            vad_filter=True,
+                            condition_on_previous_text=False,
                         )
 
                         text = "".join(seg.text for seg in segments).strip()
                         if text:
+                            print(f"[mic] heard: {text}")
                             self._emit_transcript(text)
                             self._handle_text(text)
 
