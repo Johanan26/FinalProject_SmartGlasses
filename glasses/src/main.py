@@ -1,8 +1,9 @@
+from .camera import Camera
+from .gps import Gps
+from .microphone import RazeListener
+from .questions import QuestionHandler
 from dotenv import load_dotenv
-from camera import Camera
-from gps import Gps
-from microphone import RazeListener
-from questions import QuestionHandler
+
 import threading
 import time
 

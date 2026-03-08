@@ -1,6 +1,6 @@
+from .models import FileData
 from picamzero import Camera as PicamzeroCamera
 from pathlib import Path
-from models import FileData
 from typing import TYPE_CHECKING
 import base64
 import requests
