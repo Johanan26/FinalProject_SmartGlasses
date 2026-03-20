@@ -50,6 +50,8 @@ def main():
     gps_thread.start()
     dispatch_thread.start()
 
+    print("running")
+    
     try:
         while True:
             time.sleep(1)

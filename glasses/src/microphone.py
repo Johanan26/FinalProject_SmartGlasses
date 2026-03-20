@@ -2,6 +2,7 @@ import threading
 import queue
 import time
 from typing import Callable, Optional, Union, List
+import re
 
 import numpy as np
 import sounddevice as sd
@@ -244,6 +245,7 @@ class RazeListener:
 
                         text = "".join(seg.text for seg in segments).strip()
                         if text:
+                            text = re.sub(r"[,\.;'\"?!]", "", text)
                             print(f"[mic] heard: {text}")
                             self._emit_transcript(text)
                             self._handle_text(text)
