@@ -48,7 +48,7 @@ async def upload_photo(photo: UploadPhoto):
 
 @app.post("/upload_video")
 async def upload_video(video: UploadVideo):
-    video_collection = VideoCollection(0, "test.video", video.data)
+    video_collection = VideoCollection(0, "test.mp4", video.data)
     db.write_collection(video_collection)
     
 @app.get("/gallery")
