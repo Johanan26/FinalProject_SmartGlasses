@@ -246,6 +246,7 @@ class RazeListener:
                         text = "".join(seg.text for seg in segments).strip()
                         if text:
                             text = re.sub(r"[,\.;'\"?!]", "", text)
+                            text = text.lower()
                             print(f"[mic] heard: {text}")
                             self._emit_transcript(text)
                             self._handle_text(text)

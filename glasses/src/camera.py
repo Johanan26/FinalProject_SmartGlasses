@@ -21,7 +21,7 @@ class Camera:
             requests.post(urljoin(url, "/upload_video"), json=video.__dict__)
 
     def make_photo(self) -> FileData:
-        loc = self.cam.take_photo("/home/johanan/Pictures/video{f}.jpg".format(f=0))
+        loc = self.cam.take_photo("/home/johanan/Pictures/photo{f}.jpg".format(f=0))
         path = Path(loc)
         filename = path.name
 
