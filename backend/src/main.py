@@ -34,7 +34,7 @@ async def root():
 @app.post("/ask_question")
 async def upload_question(question: UploadQuestion):
     response = client.models.generate_content(
-        model="gemini-2.0-flash",
+        model="gemini-2.5-flash-lite",
         contents=question.data
     )
     db.write_collection(AIQuestion(0, question.data, response.text))
@@ -42,13 +42,13 @@ async def upload_question(question: UploadQuestion):
     
 @app.post("/upload_photo")
 async def upload_photo(photo: UploadPhoto):
-    photo_collection = PhotoCollection(0, photo.data)
+    photo_collection = PhotoCollection(0, "test.png", photo.data)
     db.write_collection(photo_collection)
     
 
 @app.post("/upload_video")
 async def upload_video(video: UploadVideo):
-    video_collection = VideoCollection(0 , video.data)
+    video_collection = VideoCollection(0, "test.mp4", video.data)
     db.write_collection(video_collection)
     
 @app.get("/gallery")
