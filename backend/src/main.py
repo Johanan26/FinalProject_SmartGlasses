@@ -29,6 +29,8 @@ client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
 @app.get("/get_questions")
 async def root():
     questions = list(db.query_collection(AIQuestion, filter={"user_id": 0}))
+    for q in questions:
+        del q["_id"]
     return {"questions": questions}
 
 @app.post("/ask_question")
