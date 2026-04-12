@@ -18,40 +18,29 @@ interface GalleryData {
 export default function Photo_video() {
   const navigate = useNavigate();
   const [gallery, setGallery] = useState<GalleryData>({
-	photos: [],
-	videos: []
+    photos: [],
+    videos: [],
   });
 
   useEffect(() => {
-    let interval: number | null = null;
+    const unsub = onAuthStateChanged(auth, async (user) => {
+      if (!user) return;
 
-    const unsub = onAuthStateChanged(auth, (user) => {
-      if (!user) {
-        if (interval) clearInterval(interval);
-        interval = null;
-        return;
-      }
-
-      if (interval) return;
-
-      interval = window.setInterval(async () => {
-        try {
-          const token = await user.getIdToken();
-          const res = await axios.get("http://localhost:8000/gallery", {
+      try {
+        const token = await user.getIdToken();
+        const res = await axios.get(
+          `http://${import.meta.env.VITE_BACKEND_URL}/gallery`,
+          {
             headers: { Authorization: `Bearer ${token}` },
-          });
-
-		  setGallery(res.data);
-        } catch (e) {
-          console.error("POLL ERROR:", e);
-        }
-      }, 3000);
+          },
+        );
+        setGallery(res.data);
+      } catch (e) {
+        console.error("FETCH ERROR:", e);
+      }
     });
 
-    return () => {
-      unsub();
-      if (interval) clearInterval(interval);
-    };
+    return () => unsub();
   }, []);
 
   return (
@@ -63,39 +52,48 @@ export default function Photo_video() {
         Back
       </button>
 
-	  <h1 className="text-3xl font-bold text-center mb-10">My Gallery</h1>
+      <h1 className="text-3xl font-bold text-center mb-10">My Gallery</h1>
 
-	  <section className="mb-16">
-		<h2 className="text-2xl font-semibold mb-6">Photos</h2>
-		{gallery.photos.length === 0 ? (
-			<p>No photos yet..</p>
-		) : (
-			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-				{gallery.photos.map((photo, index) => (
-					<div key={index} className="bg-gray-800 rounded-xl overflow-hidden shadow-lg p-2">
-						<img src={`data:image/jpeg;base64,${photo.data}`} className="w-full h-64 object-cover"></img>
-					</div>
-				))}
-			</div>
-		)}
-	  </section>
+      <section className="mb-16">
+        <h2 className="text-2xl font-semibold mb-6">Photos</h2>
+        {gallery.photos.length === 0 ? (
+          <p>No photos yet..</p>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {gallery.photos.map((photo, index) => (
+              <div
+                key={index}
+                className="bg-gray-800 rounded-xl overflow-hidden shadow-lg p-2"
+              >
+                <img
+                  src={`data:image/jpeg;base64,${photo.data}`}
+                  className="w-full h-64 object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
 
-	  <section className="mb-16">
-		<h2 className="text-2xl font-semibold mb-6">Videos</h2>
-		{gallery.photos.length === 0 ? (
-			<p>No videos yet..</p>
-		) : (
-			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-				{gallery.videos.map((video, index) => (
-					<div key={index} className="bg-gray-800 rounded-xl overflow-hidden shadow-lg p-2">
-						<video controls className="w-full rounded-lg">
-							<source src={`data:video/mp4;base64,${video.data}`}/>
-						</video>
-					</div>
-				))}
-			</div>
-		)}
-	  </section>
+      <section className="mb-16">
+        <h2 className="text-2xl font-semibold mb-6">Videos</h2>
+        {gallery.videos.length === 0 ? (
+          <p>No videos yet..</p>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {gallery.videos.map((video, index) => (
+              <div
+                key={index}
+                className="bg-gray-800 rounded-xl overflow-hidden shadow-lg p-2"
+              >
+                <video controls className="w-full rounded-lg">
+                  <source src={`data:video/mp4;base64,${video.data}`} />
+                </video>
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
     </div>
   );
 }

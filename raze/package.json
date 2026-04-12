@@ -21,6 +21,7 @@
     "@googlemaps/js-api-loader": "^2.0.2",
     "@tailwindcss/vite": "^4.1.18",
     "axios": "^1.13.5",
+    "dotenv": "^17.4.2",
     "firebase": "^12.8.0",
     "leaflet": "^1.9.4",
     "nativewind": "^4.2.1",
