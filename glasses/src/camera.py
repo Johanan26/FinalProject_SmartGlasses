@@ -7,10 +7,7 @@ import requests
 from picamzero import Camera as PicamzeroCamera
 
 from .models import FileData
-<<<<<<< HEAD
-=======
 from .oled import OLEDHandler
->>>>>>> c2d09b27652a30d8f05a6905ddd438a02cd5ea0d
 
 
 class Camera:
