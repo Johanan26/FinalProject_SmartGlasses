@@ -28,11 +28,7 @@ def dispatch_loop(
             question.handle_command(low)
         elif "take photo" in low or "take video" in low:
             camera.handle_command(low)
-<<<<<<< HEAD
-        elif "show menu":
-=======
         elif "show menu" in low:
->>>>>>> c2d09b27652a30d8f05a6905ddd438a02cd5ea0d
             oled.handle_command(low)
         else:
             print(f"[dispatch] unrecognised command: {cmd}")
@@ -49,11 +45,7 @@ def main():
     gps_thread = threading.Thread(target=gps.run, daemon=True)
 
     dispatch_thread = threading.Thread(
-<<<<<<< HEAD
-        target=dispatch_loop, args=(listener, camera, question), daemon=True
-=======
         target=dispatch_loop, args=(listener, camera, question, oled), daemon=True
->>>>>>> c2d09b27652a30d8f05a6905ddd438a02cd5ea0d
     )
 
     listener.start()
