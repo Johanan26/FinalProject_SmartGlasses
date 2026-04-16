@@ -1,0 +1,12 @@
+requests
+python-dotenv
+luma.oled
+pillow
+smbus2
+picamzero
+pyserial
+pynmea2
+numpy
+sounddevice
+faster-whisper
+pexpect
