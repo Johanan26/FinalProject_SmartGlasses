@@ -7,6 +7,10 @@ import requests
 from picamzero import Camera as PicamzeroCamera
 
 from .models import FileData
+<<<<<<< HEAD
+=======
+from .oled import OLEDHandler
+>>>>>>> c2d09b27652a30d8f05a6905ddd438a02cd5ea0d
 
 
 class Camera:
@@ -22,9 +26,11 @@ class Camera:
         if "take photo" in cmd:
             photo = self.make_photo()
             requests.post(urljoin(url, "/upload_photo"), json=photo.__dict__)
+            OLEDHandler.display_text("uploaded photo")
         elif "take video" in cmd:
             video = self.make_video()
             requests.post(urljoin(url, "/upload_video"), json=video.__dict__)
+            OLEDHandler.display_text("uploaded video")
 
     def make_photo(self) -> FileData:
         loc = self.cam.take_photo("/home/johanan/Pictures/photo{f}.jpg".format(f=0))
