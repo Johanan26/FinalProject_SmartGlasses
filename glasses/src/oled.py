@@ -1,6 +1,6 @@
 from luma.core.interface.serial import spi
 from luma.oled.device import ssd1309
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 COMMANDS = [
     "take photo",
@@ -77,6 +77,7 @@ class OLEDHandler:
             draw.text((padding_x, y), line, font=cls.font, fill=255)
             y += line_height
 
+        image = ImageOps.mirror(image)
         cls.device.display(image)
         print("[oled] displayed ai answer")
 
@@ -105,6 +106,7 @@ class OLEDHandler:
             draw.text((padding_x, y), line, font=cls.font, fill=255)
             y += line_height
 
+        image = ImageOps.mirror(image)
         cls.device.display(image)
         print("[oled] displayed text")
 
@@ -120,6 +122,7 @@ class OLEDHandler:
             draw.text((10, pos), command, font=self.font, fill=255)
             pos += 14
 
+        image = ImageOps.mirror(image)
         self.device.display(image)
         print("[oled] displayed menu")
 
