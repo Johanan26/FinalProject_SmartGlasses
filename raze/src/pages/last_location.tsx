@@ -23,7 +23,7 @@ export default function Last_location() {
     interval = window.setInterval(async () => {
       try {
         const token = await user.getIdToken();
-        const res = await axios.get("http://${import.meta.env.VITE_BACKEND_URL}/get_last_location", {
+        const res = await axios.get(`http://${import.meta.env.VITE_BACKEND_URL}/get_last_location`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         console.log("DATA:", res.data);
